@@ -4,14 +4,7 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-# @app.get("/")
-# def index():
-#     return {"Data": "Test"}
 
-
-# @app.get("/about")
-# def about():
-#     return {"Data": "About"}
 class Item(BaseModel):
     name: str
     price:float
@@ -28,6 +21,15 @@ inventory = {
         "brand": "KCC"
     }
 }
+
+@app.get("/")
+def index():
+    return {"Data": "Test"}
+
+
+@app.get("/about")
+def about():
+    return {"Data": "About"}
 
 @app.get("/get-by-name/{item_id}")
 def get_item(*, item_id: int, name: Optional[str] = None, test: int):
