@@ -99,7 +99,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 # Define a base class for declarative class definitions
-Base = declarative_base()
+Base = sqlalchemy.orm.declarative_base()
 
 # Define a class representing the 'companies' table in the database
 class Company(Base):
